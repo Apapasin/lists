@@ -47,3 +47,25 @@ def retest_scores(scores):
     return retest
 print(retest_scores([80,40,70,55,40]))
 print(retest_scores([70,100]))
+
+# Задание 7
+def replace_score(scores,number,value):
+    if number<1 or number>len(scores):
+        return False
+    if value<0 or value>100:
+        return False
+    scores[number-1]=value
+    return True
+scores_list=read_scores(5)
+if scores_list:
+    try:
+        num=int(input("Введите номер оценки для исправления:"))
+        val=int(input("Введите новую оценку"))
+        if replace_score(scores_list,num,val):
+            print("Оценка исправлена")
+        else:
+            print("Ошибка неверный ввод")
+    except ValueError:
+        print("Ошибка введите целые числа")
+    show_statistics(scores_list)
+    print("Список на повторную проверку:",retest_scores(scores_list))
