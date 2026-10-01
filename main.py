@@ -3,7 +3,7 @@ def read_scores(count):
     scores=[]
     while len(scores)<count:
         try:
-            user_input=input(f"Введите оценку-{len(scores)+1} из {count}:")
+            user_input=input(f"Введите оценку {len(scores)+1} из {count}:")
             score=int(user_input)
             if 0<=score<=100:
                 scores.append(score)
@@ -36,3 +36,14 @@ show_statistics([80,65,90,45,70])
 show_statistics([69,70,71,0,100])
 show_statistics([0,0,0,0,0])
 show_statistics([])
+
+# Задание 6
+def retest_scores(scores):
+    retest=[]
+    for score in scores:
+        if score<70:
+            retest.append(score)
+    retest.sort()
+    return retest
+print(retest_scores([80,40,70,55,40]))
+print(retest_scores([70,100]))
